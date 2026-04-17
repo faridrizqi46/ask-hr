@@ -205,8 +205,8 @@ export default function CVAnalyzerTestPage() {
 
   return (
     <div className="h-full flex">
-      <div className="w-80 flex-shrink-0 border-r bg-card overflow-y-auto">
-        <CardHeader className="pb-3">
+      <div className="w-80 flex-shrink-0 bg-card overflow-y-auto">
+        <div className="pb-3 px-4 pt-4">
           <div className="flex items-center justify-between">
             <CardTitle className="text-base">Job List ({jobs.length})</CardTitle>
             <Button size="sm" onClick={handleAddJob}>
@@ -214,10 +214,10 @@ export default function CVAnalyzerTestPage() {
               Add
             </Button>
           </div>
-        </CardHeader>
-        <CardContent className="space-y-2 p-2">
+        </div>
+        <div className="space-y-2 px-2 pb-4">
           {jobs.map((job) => (
-            <div key={job.id} className="p-3 rounded-lg border bg-background">
+            <div key={job.id} className="p-3 rounded-lg bg-muted/50">
               <div className="flex items-start justify-between">
                 <div className="flex-1 min-w-0">
                   <h4 className="font-medium text-sm truncate">{job.title}</h4>
@@ -247,17 +247,17 @@ export default function CVAnalyzerTestPage() {
               </div>
             </div>
           ))}
-        </CardContent>
+        </div>
       </div>
 
-      <div className="flex-1 flex flex-col min-w-0 border-r">
-        <div className="p-4 border-b space-y-4">
+      <div className="flex-1 flex flex-col min-w-0">
+        <div className="p-4 space-y-4">
           <div
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             className={cn(
-              "border-2 border-dashed rounded-lg p-6 text-center transition-colors",
-              isParsing ? "border-primary bg-primary/5" : "border-muted-foreground/25 hover:border-muted-foreground/50"
+              "border border-dashed rounded-lg p-6 text-center transition-colors bg-muted/30",
+              isParsing ? "border-primary bg-primary/5" : "border-border hover:border-muted-foreground/50"
             )}
           >
             {isParsing ? (
@@ -289,7 +289,7 @@ export default function CVAnalyzerTestPage() {
 
           {selectedFile && !isParsing && (
             <div className="space-y-3">
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-muted">
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
                 <FileText className="h-5 w-5 text-primary" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium truncate">{selectedFile.name}</p>
@@ -324,7 +324,7 @@ export default function CVAnalyzerTestPage() {
         <div className="flex-1 overflow-y-auto p-4">
           {parsedCV && (
             <div className="space-y-4">
-              <Card>
+              <Card className="shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-sm flex items-center gap-2">
                     <User className="h-4 w-4" />
@@ -358,7 +358,7 @@ export default function CVAnalyzerTestPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-sm flex items-center gap-2">
                     <FileText className="h-4 w-4" />
