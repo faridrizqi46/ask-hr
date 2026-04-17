@@ -17,7 +17,7 @@ const navItems = [
   },
   {
     title: "CV Analyzer",
-    href: "/dashboard/cv-analyzer-test",
+    href: "/dashboard/cv-analyzer",
     iconName: "FileSearch",
   },
   {
