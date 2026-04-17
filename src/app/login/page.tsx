@@ -16,7 +16,7 @@ export default function LoginPage() {
       document.cookie = `admin_token=password123; path=/; max-age=86400`;
       document.cookie = `user_email=emily.nates@company.com; path=/; max-age=86400`;
       document.cookie = `user_name=Emily Nates; path=/; max-age=86400`;
-      router.push("/dashboard/cv-analyzer");
+      router.push("/dashboard/chat");
     } else {
       setError("Invalid email or password");
     }
